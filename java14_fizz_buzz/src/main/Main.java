@@ -4,10 +4,10 @@ import java.util.stream.IntStream;
 
 public class Main {
   public static void main(String[] args) {
-    IntStream.rangeClosed(1, 100).forEach(Main::fizzBuzz);
+    IntStream.rangeClosed(1, 100).mapToObj(Main::fizzBuzz).forEach(System.out::println);
   }
 
-  public static void fizzBuzz(int i) {
+  public static String fizzBuzz(int i) {
     var fizz = "Fizz";
     var buzz = "Buzz";
     var t = switch (i) {
@@ -16,5 +16,6 @@ public class Main {
       case 5, 10, 20, 25, 35, 40, 50, 55, 65, 70, 80, 85, 95, 100 -> buzz;
       default -> String.valueOf(i);
     };
+    return t;
   }
 }
